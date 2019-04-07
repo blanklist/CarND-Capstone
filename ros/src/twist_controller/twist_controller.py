@@ -36,7 +36,7 @@ class Controller(object):
 
 
 
-    def control(self, *args, **kwargs):
+    def control(self, current_vel, dbw_enabled, linear_vel, angular_vel):
     	if not dbw_enabled:
     		self.throttle_controller.reset()
     		return 0, 0, 0
