@@ -37,11 +37,8 @@ class WaypointUpdater(object):
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
         rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb)
 
-        # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
-
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
 
-        # TODO: Add other member variables you need below
         self.base_lane = None
         self.pose = None
         self.base_waypoints = None
@@ -49,8 +46,6 @@ class WaypointUpdater(object):
         self.waypoint_tree = None
 
         self.loop()
-
-        # rospy.spin()
 
     def loop(self):
         rate = rospy.Rate(50)
