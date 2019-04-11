@@ -136,6 +136,7 @@ class TLDetector(object):
 
         closest_light = None
         line_wp_idx = None
+        state = TrafficLight.UNKNOWN
 
         # List of positions that correspond to the line to stop in front of for a given intersection
         stop_line_positions = self.config['stop_line_positions']
@@ -159,7 +160,7 @@ class TLDetector(object):
             state = self.get_light_state(closest_light)
             return line_wp_idx, state
 
-        return -1, TrafficLight.UNKNOWN
+        return line_wp_idx, state
 
 if __name__ == '__main__':
     try:
