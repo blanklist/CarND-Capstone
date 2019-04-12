@@ -151,7 +151,7 @@ class TLDetector(object):
 
             #TODO find the closest visible traffic light (if one exists)
             diff = len(self.waypoints.waypoints)
-            for i, light in enumerable(self.lights):
+            for i, light in enumerate(self.lights):
                 # get stop line waypoint index
                 line = stop_line_positions[i]
                 temp_wp_idx = self.get_closest_waypoint(line[0], line[1])
