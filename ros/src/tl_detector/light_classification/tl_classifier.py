@@ -32,7 +32,7 @@ class TLClassifier(object):
         # circles = cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,1,60, param1=100,param2=50,minRadius=8,maxRadius=80)
         circles = cv2.HoughCircles(blur_img, cv2.HOUGH_GRADIENT)
 
-        colorized_blur_img = cv2.cvtColor(blur_img, cv2.COLOR_GRAY2BGR)
+        colorized_blur_img = cv2.cvtColor(blur_img, cv2.COLOR_GRAY2BGR, 1)
 
         if circles is not None:
             result = TrafficLight.RED
