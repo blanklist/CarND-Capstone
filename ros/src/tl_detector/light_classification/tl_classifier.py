@@ -31,7 +31,7 @@ class TLClassifier(object):
         # found = False 
         if circles is not None:
             result = TrafficLight.RED
-            cv2.imwrite('img_results/test.jpg', blur_img)
+            cv2.imwrite('/home/joe/udacity/CarND-Capstone/ros/src/tl_detector/light_classification/img_results/test.jpg', blur_img)
 
         return result, output
 
