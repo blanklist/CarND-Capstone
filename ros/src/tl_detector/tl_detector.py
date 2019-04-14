@@ -46,6 +46,8 @@ class TLDetector(object):
         
         self.colorized_blur_img_pub = rospy.Publisher('/colorized_blur_img', Image, queue_size=1)
 
+        self.color_img_pub = rospy.Publisher('/color_img', Image, queue_size=1)
+
         self.bridge = CvBridge()
         self.light_classifier = TLClassifier()
         self.listener = tf.TransformListener()
@@ -114,6 +116,8 @@ class TLDetector(object):
 
         colorized_blur_img_msg = self.bridge.cv2_to_imgmsg(show_blur_img, encoding="bgr8")
         self.colorized_blur_img_pub.publish(colorized_blur_img_msg)
+
+        self.camera_image_pub.publish(camera_image)
 
      
         return classification
