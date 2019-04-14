@@ -1,5 +1,6 @@
 import cv2
 import os
+import rospy
 import numpy as np
 from styx_msgs.msg import TrafficLight
 
