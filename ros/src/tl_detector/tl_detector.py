@@ -44,9 +44,7 @@ class TLDetector(object):
 
         self.upcoming_red_light_pub = rospy.Publisher('/traffic_waypoint', Int32, queue_size=1)
         
-        self.tl_img_crop_pub = rospy.Publisher('/tl_img_crop', Image, queue_size=1)
-        self.tl_center_img_pub = rospy.Publisher('/tl_center_img', Image, queue_size=1)
-
+        self.colorized_blur_img_pub = rospy.Publisher('/colorized_blur_img', Image, queue_size=1)
 
         self.bridge = CvBridge()
         self.light_classifier = TLClassifier()
@@ -114,8 +112,8 @@ class TLDetector(object):
 
         classification, show_blur_img = self.light_classifier.get_classification(cv_image)
 
-        tl_img_crop_msg = self.bridge.cv2_to_imgmsg(show_blur_img, encoding="8UC1")
-        self.tl_img_crop_pub.publish(tl_img_crop_msg)
+        colorized_blur_img_msg = self.bridge.cv2_to_imgmsg(show_blur_img, encoding="bgr8")
+        self.colorized_blur_img_pub.publish(colorized_blur_img_msg)
 
      
         return classification
