@@ -25,7 +25,9 @@ class TLClassifier(object):
 
         converted_img = cv2.addWeighted(red1, 1.0, red2, 1.0, 0.0)
 
-        blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
+        # blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
+        blur_img = cv2.GaussianBlur(red,(15,15),0)
+
 
         # blur_img_msg = cv2_to_imgmsg(blur_img, "bgr8")
         # blur_img_msg = self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
