@@ -13,6 +13,7 @@ class TLClassifier(object):
         output = image.copy()
 
         cv2.imwrite('img_results/image.jpg', output)
+        rospy.loginfo("just saved image")
 
         result = TrafficLight.UNKNOWN
 
