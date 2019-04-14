@@ -28,9 +28,10 @@ class TLClassifier(object):
 
         circles = cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,0.5,41, param1=70,param2=30,minRadius=5,maxRadius=150)
 
-        found = False 
+        # found = False 
         if circles is not None:
             result = TrafficLight.RED
+            cv2.imwrite('img_results/test.jpg', blur_img)
 
         return result, output
 
