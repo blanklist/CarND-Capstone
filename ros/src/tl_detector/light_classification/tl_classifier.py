@@ -27,7 +27,10 @@ class TLClassifier(object):
 
         blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
 
-        blur_img_msg = cv2_to_imgmsg(blur_img, "bgr8")
+        # blur_img_msg = cv2_to_imgmsg(blur_img, "bgr8")
+        # blur_img_msg = self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
+
+        cv2.imwrite('camera_test.jpeg', blur_img)
 
         circles = cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,0.5,41, param1=70,param2=30,minRadius=5,maxRadius=150)
 
