@@ -14,7 +14,7 @@ class TLClassifier(object):
 
         cv2.imwrite('img_results/image.jpg', output)
 
-
+        result = TrafficLight.UNKNOWN
 
         return result, output
 
