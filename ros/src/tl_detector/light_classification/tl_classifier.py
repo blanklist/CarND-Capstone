@@ -37,7 +37,7 @@ class TLClassifier(object):
         if circles is not None:
             result = TrafficLight.RED
 
-        return result, output
+        return result, blur_img
 
 
 

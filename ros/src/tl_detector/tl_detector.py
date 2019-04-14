@@ -112,9 +112,9 @@ class TLDetector(object):
 
         cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
 
-        classification, show_img = self.light_classifier.get_classification(cv_image)
+        classification, show_blur_img = self.light_classifier.get_classification(cv_image)
 
-        tl_img_crop_msg = self.bridge.cv2_to_imgmsg(show_img, encoding="bgr8")
+        tl_img_crop_msg = self.bridge.cv2_to_imgmsg(show_blur_img, encoding="bgr8")
         self.tl_img_crop_pub.publish(tl_img_crop_msg)
 
      
