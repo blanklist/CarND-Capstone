@@ -1,3 +1,4 @@
+import cv2
 from styx_msgs.msg import TrafficLight
 
 class TLClassifier(object):
