@@ -25,19 +25,20 @@ class TLClassifier(object):
         red = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 
-        lower_red = np.array([0,50,50])
-        upper_red = np.array([10,255,255])
-        red1 = cv2.inRange(red, lower_red , upper_red)
+        # lower_red = np.array([0,50,50])
+        # upper_red = np.array([10,255,255])
+        # red1 = cv2.inRange(red, lower_red , upper_red)
 
 
-        lower_red = np.array([170,50,50])
-        upper_red = np.array([180,255,255])
-        red2 = cv2.inRange(red, lower_red , upper_red)
+        # lower_red = np.array([170,50,50])
+        # upper_red = np.array([180,255,255])
+        # red2 = cv2.inRange(red, lower_red , upper_red)
 
-        converted_img = cv2.addWeighted(red1, 1.0, red2, 1.0, 0.0)
+        # converted_img = cv2.addWeighted(red1, 1.0, red2, 1.0, 0.0)
 
-        blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
+        # blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
 
+        blur_img = cv2.GaussianBlur(red, (15, 15), 0)
 
         #edges = cv2.Canny(imgray,thresh,thresh*3)
 
