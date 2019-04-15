@@ -44,6 +44,7 @@ class Bridge(object):
         self.yaw = None
         self.angular_vel = 0.
         self.bridge = CvBridge()
+        self.n = 0
 
         self.callbacks = {
             '/vehicle/steering_cmd': self.callback_steering,
