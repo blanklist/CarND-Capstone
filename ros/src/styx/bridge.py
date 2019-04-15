@@ -185,7 +185,7 @@ class Bridge(object):
             self.publishers['image'].publish(image_message)
 
         self.n += 1
-        self.n = self.n % 4
+        self.n = self.n % 10
 
 
 
