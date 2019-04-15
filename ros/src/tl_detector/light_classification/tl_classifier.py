@@ -13,21 +13,21 @@ class TLClassifier(object):
     def get_classification(self, image):
         result = TrafficLight.UNKNOWN
         output = image.copy()
-        red = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        hsv_transform = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-        lower_red = np.array([0,100,100])
-        upper_red = np.array([10,255,255])
-        red1 = cv2.inRange(red, lower_red , upper_red)
+        lower_hue_1 = np.array([0,100,100])
+        lower_hue_2 = np.array([10,255,255])
+        lower_hue = cv2.inRange(hsv_transform, lower_hue_1 , lower_hue_2)
 
-        lower_red = np.array([160,100,100])
-        upper_red = np.array([179,255,255])
-        red2 = cv2.inRange(red, lower_red , upper_red)
+        upper_hue_1 = np.array([160,100,100])
+        upper_hue_2 = np.array([179,255,255])
+        upper_hue = cv2.inRange(hsv_transform, upper_hue_1 , upper_hue_2)
 
-        converted_img = cv2.addWeighted(red1, 1, red2, 1, 0)
+        converted_img = cv2.addWeighted(lower_hue, 1, upper_hue, 1, 0)
 
-        blur_img = cv2.GaussianBlur(converted_img,(15,15),0)
+        blur_img = cv2.GaussianBlur(converted_img, (15, 15), 0)
 
-        circles = cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,0.5,40, param1=70,param2=30,minRadius=5,maxRadius=150)
+        circles = cv2.HoughCircles(blur_img, cv2.HOUGH_GRADIENT, 0.5, 40, param1 = 70, param2 = 30, minRadius = 5, maxRadius = 150)
   
         colorized_blur_img = cv2.cvtColor(blur_img, cv2.COLOR_GRAY2BGR)
 
